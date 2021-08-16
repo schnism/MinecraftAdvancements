@@ -84,14 +84,25 @@ while (false !== ($category = $categories->read())) {
 
 
 echo "<tr><td>Statistics</td><td>Hours played</td>";
-
 foreach($users as &$user)
 {
-	echo "<td align=right>" . round($user["stats"]["stats"]["minecraft:custom"]["minecraft:play_time"] /20/60/60) . "</td>";
+	echo "<td align=right>" . number_format($user["stats"]["stats"]["minecraft:custom"]["minecraft:play_time"] /20/60/60,0,',','.') . "</td>";
 }
 echo "</tr>";
 
+echo "<tr><td>Statistics</td><td>Diamond Pickaxes broken</td>";
+foreach($users as &$user)
+{
+	echo "<td align=right>" . $user["stats"]["stats"]["minecraft:broken"]["minecraft:diamond_pickaxe"] . "</td>";
+}
+echo "</tr>";
 
+echo "<tr><td>Statistics</td><td>Netherite Pickaxes broken</td>";
+foreach($users as &$user)
+{
+	echo "<td align=right>" . $user["stats"]["stats"]["minecraft:broken"]["minecraft:netherite_pickaxe"] . "</td>";
+}
+echo "</tr>";
 
 
 
